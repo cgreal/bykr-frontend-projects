@@ -1,0 +1,81 @@
+.solution {
+  &-wrapper {
+    max-width: 100%;
+    @media screen and (min-width: 640px) {
+    }
+    @media screen and (min-width: 768px) {
+      // margin: 100px 0 0 300px;
+      max-width: 535px;
+    }
+  }
+
+  &:after {
+    content: "";
+    position: absolute;
+    background: url(../../assets/images/backgrounds/dotShadow.svg) left bottom no-repeat;
+    width: 83px;
+    height: 115px;
+    bottom: 3rem;
+    left: 3rem;
+    background-size: 110px;
+    z-index: 0;
+  }
+  &-img {
+    max-width: 100%;
+    z-index: 3;
+    @media screen and (min-width: 1024px) {
+      max-width: calc(100% + 200px);
+    }
+  }
+  .image-wrapper {
+    z-index: 2;
+    &:before {
+      content: "";
+      position: absolute;
+      background: url(../../assets/images/backgrounds/shape-shadow.png) left bottom no-repeat;
+      width: 111px;
+      height: 107px;
+      left: 100%;
+      right: 0;
+      top: -3rem;
+      background-size: 110px;
+      z-index: -1;
+      margin: 0 0 0 auto;
+      @media screen and (min-width: 767px) {
+        left: initial;
+        right: 0;
+        margin: 0;
+        top: 3rem;
+        z-index: -1;
+      }
+      @media screen and (min-width: 1024px) {
+        left: 20%;
+        z-index: -1;
+      }
+      @media screen and (min-width: 1281px) {
+        left: calc(100% + 130px);
+        z-index: -1;
+      }
+    }
+  }
+  &-title {
+    padding-left: 40px;
+    position: relative;
+    &:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      margin: auto;
+      background: url(../../assets/images/icons/check-circle.svg) no-repeat;
+      fill: #ffc93e;
+      background-size: 25px;
+      width: 25px;
+      height: 25px;
+    }
+  }
+  &-text {
+    padding-left: 40px;
+  }
+}

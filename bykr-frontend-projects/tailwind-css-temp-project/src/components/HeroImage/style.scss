@@ -1,0 +1,93 @@
+.hero {
+  width: 100%;
+  &:before {
+    content: "";
+    position: absolute;
+    width: 341px;
+    height: 341px;
+    left: 0;
+    top: 0;
+
+    background: #7c3eff;
+    filter: blur(250px);
+    transform: matrix(1, 0, 0, -1, 0, 0);
+    background-size: 490px 428px;
+
+    z-index: -1;
+  }
+  &:after {
+    content: "";
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    right: 0;
+    top: 0;
+
+    background: #be229c;
+    filter: blur(250px);
+    transform: matrix(1, 0, 0, -1, 0, 0);
+    z-index: -1;
+  }
+
+  .bg {
+    &-left-corner {
+      &:before {
+        content: "";
+        background: url(../../assets/images/backgrounds/Ornament69.svg) no-repeat;
+        width: 100%;
+        height: 428px;
+        left: 0;
+        top: 0;
+        position: absolute;
+        border-radius: 0 0 76% 0;
+        z-index: -2;
+        @media screen and (min-width: 768px) {
+          width: 490px;
+        }
+      }
+    }
+  }
+  &-text {
+    line-height: 1;
+    text-align: center;
+    color: #ffffff;
+    &:before {
+      content: "";
+      position: absolute;
+      width: 717px;
+      height: 767px;
+      right: 4%;
+      background: url(../../assets/images/VectorArrow.png) right top no-repeat;
+      background-size: 717px 767px;
+      z-index: -1;
+    }
+  }
+  .word-class-img {
+    width: 240px;
+    height: auto;
+  }
+  &-left-img {
+    width: 241px;
+    height: auto;
+  }
+  &-right-img {
+    width: 100%;
+    height: auto;
+  }
+  .left-image-box {
+    &:before {
+      content: "";
+      position: absolute;
+      background: url(../../assets/images/backgrounds/shape-shadow.png) right bottom no-repeat;
+      width: 144px;
+      height: 139px;
+      bottom: 0;
+      right: 0;
+      background-size: 144px;
+      z-index: -1;
+    }
+  }
+  &-main-text {
+    max-width: 515px;
+  }
+}
