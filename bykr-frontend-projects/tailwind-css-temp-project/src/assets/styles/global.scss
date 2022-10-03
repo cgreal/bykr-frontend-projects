@@ -170,6 +170,20 @@ nav {
     &-button-next,
     &-button-prev {
       background: #ffc93e;
+      display: none;
+      @media screen and (min-width: 1023px) {
+        display: flex;
+      }
+    }
+    &-pagination {
+      display: block;
+      @media screen and (min-width: 1023px) {
+        display: none;
+      }
     }
   }
+}
+.person-img {
+  width: 70px;
+  height: 70px;
 }

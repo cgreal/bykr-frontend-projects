@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef, useCallback } from "react";
 import quotes from "../../assets/images/icons/quotes.svg";
 import person1 from "../../assets/images/person1.png";
 import person2 from "../../assets/images/person2.png";
@@ -6,25 +6,51 @@ import { Swiper, SwiperSlide } from "swiper/react";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
+import { Pagination, Navigation } from "swiper";
 
 const FeedBackSlider = () => {
   return (
-    <div className="flex flex-col">
-      <div className="flex mb-10 items-center mx-0 md:mx-40 lg:mx-60">
-        <h1 className="text-xl md:text-2xl font-bold whitespace-nowrap">What say happy clients</h1>
+    <div className="flex flex-col mx-auto md:ml-40 lg:ml-60">
+      <div className="flex items-center md:items-start mx-10 md:mx-0">
+        <h1 className="text-xl md:text-2xl font-bold whitespace-nowrap my-0">
+          What say happy clients
+        </h1>
       </div>
       <Swiper
-        slidesPerView={2}
+        slidesPerView={1}
         spaceBetween={30}
         slidesPerGroup={1}
-        centeredSlides={true}
+        centeredSlides={false}
         navigation={true}
-        modules={[]}
+        pagination={{
+          clickable: false,
+        }}
         className="FeedBackSwiper"
+        breakpoints={{
+          // when window width is >= 640px
+          640: {
+            centeredSlides: true,
+            width: 768,
+            slidesPerView: 2,
+          },
+          // when window width is >= 768px
+          768: {
+            centeredSlides: false,
+            width: 768,
+            slidesPerView: 1,
+          },
+          // when window width is >= 1024
+          1024: {
+            centeredSlides: true,
+            width: 768,
+            slidesPerView: 1,
+          },
+        }}
+        modules={[Pagination, Navigation]}
       >
         <SwiperSlide>
-          <blockquote class="blockquote blockquote-custom bg-gray rounded-default px-10 py-10 mb-10">
-            <div class="blockquote-custom-icon bg-info ">
+          <blockquote class="blockquote blockquote-custom bg-gray rounded-default px-10 py-10 md:p-16 mt-10 mb-20">
+            <div class="blockquote-custom-icon m-auto md:m-0 bg-info ">
               <img src={quotes} class="mb-5" alt="" />
             </div>
             <h2 class="mb-5">Branding</h2>
@@ -33,9 +59,9 @@ const FeedBackSlider = () => {
               pretium sagittis. Nulla ridiculus nullam bibendum luctus viverra. Eu pellentesque sem
               sed platea diam dignissim duis purus.
             </p>
-            <footer class="blockquote-footer pt-4 mt-4 border-top">
-              <div class="flex justify-between items-center">
-                <div className="flex flex-row items-center">
+            <footer class="blockquote-footer pt-4 mt-4 ">
+              <div class="flex flex-col md:flex-row justify-between items-center">
+                <div className="flex flex-row justify-between items-center">
                   <img class="w-10 h-10 rounded-full mr-4" src={person1} alt="" />
                   <div class="text-sm">
                     <p class="text-white leading-none whitespace-nowrap">Brooklyn Simmons</p>
@@ -43,7 +69,7 @@ const FeedBackSlider = () => {
                   </div>
                 </div>
 
-                <div class="flex items-center">
+                <div class="flex items-center md:flex">
                   <svg
                     aria-hidden="true"
                     class="w-5 h-5 text-yellow"
@@ -100,8 +126,8 @@ const FeedBackSlider = () => {
           </blockquote>
         </SwiperSlide>
         <SwiperSlide>
-          <blockquote class="blockquote blockquote-custom bg-gray rounded-default px-10 py-10 mb-10">
-            <div class="blockquote-custom-icon bg-info ">
+          <blockquote class="blockquote blockquote-custom bg-gray rounded-default px-10 py-10 md:p-16 mt-10 mb-20">
+            <div class="blockquote-custom-icon m-auto md:m-0 bg-info ">
               <img src={quotes} class="mb-5" alt="" />
             </div>
             <h2 class="mb-5">Branding</h2>
@@ -110,9 +136,9 @@ const FeedBackSlider = () => {
               pretium sagittis. Nulla ridiculus nullam bibendum luctus viverra. Eu pellentesque sem
               sed platea diam dignissim duis purus.
             </p>
-            <footer class="blockquote-footer pt-4 mt-4 border-top">
-              <div class="flex justify-between items-center">
-                <div className="flex flex-row items-center">
+            <footer class="blockquote-footer pt-4 mt-4 ">
+              <div class="flex flex-col md:flex-row justify-between items-center">
+                <div className="flex flex-row justify-between items-center">
                   <img class="w-10 h-10 rounded-full mr-4" src={person2} alt="" />
                   <div class="text-sm">
                     <p class="text-white leading-none  whitespace-nowrap">Bettero.Inc, CEO</p>
@@ -176,8 +202,8 @@ const FeedBackSlider = () => {
           </blockquote>
         </SwiperSlide>
         <SwiperSlide>
-          <blockquote class="blockquote blockquote-custom bg-gray rounded-default px-10 py-10 mb-10">
-            <div class="blockquote-custom-icon bg-info ">
+          <blockquote class="blockquote blockquote-custom bg-gray rounded-default px-10 py-10 md:p-16 mt-10 mb-20">
+            <div class="blockquote-custom-icon m-auto md:m-0 bg-info ">
               <img src={quotes} class="mb-5" alt="" />
             </div>
             <h2 class="mb-5">Branding</h2>
@@ -186,17 +212,17 @@ const FeedBackSlider = () => {
               pretium sagittis. Nulla ridiculus nullam bibendum luctus viverra. Eu pellentesque sem
               sed platea diam dignissim duis purus.
             </p>
-            <footer class="blockquote-footer pt-4 mt-4 border-top">
-              <div class="flex justify-between items-center">
-                <div className="flex flex-row items-center">
+            <footer class="blockquote-footer pt-4 mt-4 ">
+              <div class="flex flex-col md:flex-row justify-between items-center">
+                <div className="flex flex-row justify-between items-center">
                   <img class="w-10 h-10 rounded-full mr-4" src={person1} alt="" />
                   <div class="text-sm">
-                    <p class="text-white leading-none  whitespace-nowrap">Brooklyn Simmons</p>
-                    <p class="text-yellow  whitespace-nowrap">Pendron.Inc, CEO</p>
+                    <p class="text-white leading-none whitespace-nowrap">Brooklyn Simmons</p>
+                    <p class="text-yellow whitespace-nowrap">Pendron.Inc, CEO</p>
                   </div>
                 </div>
 
-                <div class="flex items-center">
+                <div class="flex items-center md:flex">
                   <svg
                     aria-hidden="true"
                     class="w-5 h-5 text-yellow"
@@ -253,8 +279,8 @@ const FeedBackSlider = () => {
           </blockquote>
         </SwiperSlide>
         <SwiperSlide>
-          <blockquote class="blockquote blockquote-custom bg-gray rounded-default px-10 py-10 mb-10">
-            <div class="blockquote-custom-icon bg-info ">
+          <blockquote class="blockquote blockquote-custom bg-gray rounded-default px-10 py-10 md:p-16 mt-10 mb-20">
+            <div class="blockquote-custom-icon m-auto md:m-0 bg-info ">
               <img src={quotes} class="mb-5" alt="" />
             </div>
             <h2 class="mb-5">Branding</h2>
@@ -263,16 +289,15 @@ const FeedBackSlider = () => {
               pretium sagittis. Nulla ridiculus nullam bibendum luctus viverra. Eu pellentesque sem
               sed platea diam dignissim duis purus.
             </p>
-            <footer class="blockquote-footer pt-4 mt-4 border-top">
-              <div class="flex justify-between items-center">
-                <div className="flex flex-row items-center">
-                  <img class="w-10 h-10 rounded-full mr-4" src={person1} alt="" />
+            <footer class="blockquote-footer pt-4 mt-4 ">
+              <div class="flex flex-col md:flex-row justify-between items-center">
+                <div className="flex flex-row justify-between items-center">
+                  <img class="w-10 h-10 rounded-full mr-4" src={person2} alt="" />
                   <div class="text-sm">
-                    <p class="text-white leading-none  whitespace-nowrap">Brooklyn Simmons</p>
-                    <p class="text-yellow  whitespace-nowrap">Pendron.Inc, CEO</p>
+                    <p class="text-white leading-none  whitespace-nowrap">Bettero.Inc, CEO</p>
+                    <p class="text-yellow  whitespace-nowrap">Jenny Wilson</p>
                   </div>
                 </div>
-
                 <div class="flex items-center">
                   <svg
                     aria-hidden="true"
